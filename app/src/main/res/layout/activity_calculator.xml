@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#e4e4e4"
+    android:layout_height="match_parent"
+    tools:context=".Views.Calculator">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:onClick="undo"
+                android:visibility="gone"
+                android:src="@drawable/undo"
+                android:clickable="false"
+                android:layout_centerVertical="true"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/undo"
+                />
+
+            <ImageView
+                android:onClick="redo"
+                android:clickable="false"
+                android:layout_width="40dp"
+                android:src="@drawable/redo"
+                android:layout_centerVertical="true"
+                android:layout_height="40dp"
+                android:visibility="gone"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:id="@+id/reudo"
+                />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Result = "
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:id="@+id/result"
+            android:layout_margin="15dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0"
+            android:textColor="#FF0000"
+            android:textSize="25sp"
+            android:id="@+id/result_id"
+            android:layout_margin="15dp"
+            android:textAllCaps="false"
+            android:layout_gravity="center_horizontal" />
+        </LinearLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:inputType="number"
+            android:id="@+id/value_enter"
+            android:enabled="false"
+            android:hint="enter number here"
+            android:background="@drawable/text_shape"
+            android:layout_margin="15dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="4"
+            android:layout_margin="15dp">
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:id="@+id/Plus"
+                android:onClick="plus_Button"
+                style="@style/ButtonStlye"
+                android:text="+"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:id="@+id/minus"
+                android:onClick="minus_Button"
+                style="@style/ButtonStlye"
+                android:text="-"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:id="@+id/div"
+                android:onClick="division_Button"
+
+                style="@style/ButtonStlye"
+                android:text="/"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:id="@+id/miltiply"
+                android:onClick="multiply_Button"
+                style="@style/ButtonStlye"
+                android:text="*"/>
+        </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/equal"
+            style="@style/ButtonStlye"
+            android:onClick="result_Button"
+
+            android:layout_gravity="center_horizontal"
+            android:text="="/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="20dp"
+            tools:listitem="@layout/history_card"
+            tools:itemCount="4"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/history_board"/>
+    </LinearLayout>
+
+</RelativeLayout>
